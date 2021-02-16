@@ -45,16 +45,14 @@ li a {
 }
 
 .navigation-wrapper li {
-    list-style: none;
     line-height: 60px;
 }
 
 .navigation-wrapper li a {
     display: block;
-    text-decoration: none;
-    font-size: 14px;
+    font-size: 18px;
     font-family: arial;
-    padding: 0 20px;
+    padding: 0 16px;
 }
 
 ul li a:hover {

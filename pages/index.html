@@ -3,7 +3,26 @@
     <head>
         <title>League Esports Hub</title>
         <link rel="stylesheet" href="../styling/style.css">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
     </head>
+    <script>
+
+    $(function() {
+
+
+        var people = [];
+
+        $.getJSON('../data/people.json', function(data) {
+            $.each(data.person, function(i, f) {
+                console.log(f.firstName);
+                // var tblRow = "<tr>" + "<td>" + f.firstName + "</td>" + "</tr>"
+                // $(tblRow).appendTo("#lcs tbody");
+            });
+
+        });
+
+    });
+    </script>
 
     <body>
         <div class="navigation-wrapper">
@@ -22,7 +41,7 @@
 
         <!-- A table that holds the matches -->
         <div>
-            <table class="center">
+            <!-- <table class="center">
                 <tr>
                     <th><h1>LCS</h1></th>
                     <th><h1>LEC</h1></th>
@@ -30,10 +49,9 @@
                 </tr>
                 <tr>
                     <td>
-                        <!-- Each row has a header displaying the teams-->
+                        
                         <h2>TSM vs. CLG</h2>
                         <ul>
-                            <!-- And two links for the match -->
                             <li><a href="#">Watch Replay</a></li>
                             <li><a href="#">Match Results</a></li>
                         </ul>
@@ -45,6 +63,46 @@
                             <li><a href="#">Match Results</a></li>
                         </ul>
                     </td>
+                    <td>
+                        <h2>SKT vs. DWG</h2>
+                        <ul>
+                            <li><a href="#">Watch Replay</a></li>
+                            <li><a href="#">Match Results</a></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table> -->
+            <table class="lcs" id="lcs">
+                <thead>
+                    <th><h1>LCS</h1></th>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <td>
+                            <h2>TSM vs. CLG</h2>
+                            <ul>
+                                <li><a href="#">Watch Replay</a></li>
+                                <li><a href="#">Match Results</a></li>
+                            </ul>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+            <table class="lec">
+                <th><h1>LEC</h1></th>
+                <tr>
+                    <td>
+                        <h2>FNC vs. G2</h2>
+                        <ul>
+                            <li><a href="#">Watch Replay</a></li>
+                            <li><a href="#">Match Results</a></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <table class="lck">
+                <th><h1>LCK</h1></th>
+                <tr>
                     <td>
                         <h2>SKT vs. DWG</h2>
                         <ul>

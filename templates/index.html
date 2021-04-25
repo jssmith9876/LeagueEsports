@@ -2,27 +2,10 @@
 <html>
     <head>
         <title>League Esports Hub</title>
-        <link rel="stylesheet" href="../styling/style.css">
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+        <link rel="stylesheet" type="text/css"
+        href="{{ url_for('static', filename='styles/style.css') }}">
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     </head>
-    <script>
-
-    $(function() {
-
-
-        var people = [];
-
-        $.getJSON('../data/people.json', function(data) {
-            $.each(data.person, function(i, f) {
-                console.log(f.firstName);
-                // var tblRow = "<tr>" + "<td>" + f.firstName + "</td>" + "</tr>"
-                // $(tblRow).appendTo("#lcs tbody");
-            });
-
-        });
-
-    });
-    </script>
 
     <body>
         <div class="navigation-wrapper">
@@ -72,11 +55,11 @@
                     </td>
                 </tr>
             </table> -->
-            <table class="lcs" id="lcs">
+            <table class="lcs">
                 <thead>
                     <th><h1>LCS</h1></th>
                 </thead>
-                <tbody>
+                <tbody id="lcs">
                     <!-- <tr>
                         <td>
                             <h2>TSM vs. CLG</h2>
@@ -86,6 +69,23 @@
                             </ul>
                         </td>
                     </tr> -->
+                    <script>
+                        $(document).ready(function () {
+                            $.getJSON("test.json", function (data) {
+                                var match = '';
+
+                                $.each(data, function (key, value) {
+                                    match += '<tr><td>'
+                                    match += '<h2>' + value.team1 + ' vs. ' + value.team2 + '</h2>';
+                                    match += '<ul>'
+                                    match += '<l1><a href="' + value.watch_link + '">Watch Replay</li>';
+                                    match += '<l1><a href="' + value.result_link + '">Match Results</li>';
+                                });
+
+                                $('#lcs').append(match);
+                            });
+                        });
+                    </script>
                 </tbody>
             </table>
             <table class="lec">

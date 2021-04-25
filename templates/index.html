@@ -46,6 +46,8 @@
                 </tbody>
             </table>
             <script>
+                // Append Data Function
+                // Adds data from a given json file to a table with id=tag
                 function append_data(id, data) {
                     var match = '';
 
@@ -60,7 +62,9 @@
                     $(id).append(match);
                 }
 
+                // When the document loads
                 $(document).ready(function () {
+                    // Get the data from the json file and load the data to the page
                     $.getJSON("test.json", function (data) {
                         var tags = ['#lcs', '#lec', '#lck'];
                         tags.forEach(tag => append_data(tag, data));

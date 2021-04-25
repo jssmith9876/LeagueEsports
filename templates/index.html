@@ -23,95 +23,50 @@
         </div>
 
         <!-- A table that holds the matches -->
-        <div>
-            <!-- <table class="center">
-                <tr>
-                    <th><h1>LCS</h1></th>
-                    <th><h1>LEC</h1></th>
-                    <th><h1>LCK</h1></th>
-                </tr>
-                <tr>
-                    <td>
-                        
-                        <h2>TSM vs. CLG</h2>
-                        <ul>
-                            <li><a href="#">Watch Replay</a></li>
-                            <li><a href="#">Match Results</a></li>
-                        </ul>
-                    </td>
-                    <td>
-                        <h2>FNC vs. G2</h2>
-                        <ul>
-                            <li><a href="#">Watch Replay</a></li>
-                            <li><a href="#">Match Results</a></li>
-                        </ul>
-                    </td>
-                    <td>
-                        <h2>SKT vs. DWG</h2>
-                        <ul>
-                            <li><a href="#">Watch Replay</a></li>
-                            <li><a href="#">Match Results</a></li>
-                        </ul>
-                    </td>
-                </tr>
-            </table> -->
+        <div class="table-wrapper">
             <table class="lcs">
                 <thead>
                     <th><h1>LCS</h1></th>
                 </thead>
                 <tbody id="lcs">
-                    <!-- <tr>
-                        <td>
-                            <h2>TSM vs. CLG</h2>
-                            <ul>
-                                <li><a href="#">Watch Replay</a></li>
-                                <li><a href="#">Match Results</a></li>
-                            </ul>
-                        </td>
-                    </tr> -->
-                    <script>
-                        $(document).ready(function () {
-                            $.getJSON("test.json", function (data) {
-                                var match = '';
-
-                                $.each(data, function (key, value) {
-                                    match += '<tr><td>'
-                                    match += '<h2>' + value.team1 + ' vs. ' + value.team2 + '</h2>';
-                                    match += '<ul>'
-                                    match += '<l1><a href="' + value.watch_link + '">Watch Replay</li>';
-                                    match += '<l1><a href="' + value.result_link + '">Match Results</li>';
-                                });
-
-                                $('#lcs').append(match);
-                            });
-                        });
-                    </script>
                 </tbody>
             </table>
             <table class="lec">
-                <th><h1>LEC</h1></th>
-                <tr>
-                    <td>
-                        <h2>FNC vs. G2</h2>
-                        <ul>
-                            <li><a href="#">Watch Replay</a></li>
-                            <li><a href="#">Match Results</a></li>
-                        </ul>
-                    </td>
-                </tr>
+                <thead>
+                    <th><h1>LEC</h1></th>
+                </thead>
+                <tbody id="lec">
+                </tbody>
             </table>
             <table class="lck">
-                <th><h1>LCK</h1></th>
-                <tr>
-                    <td>
-                        <h2>SKT vs. DWG</h2>
-                        <ul>
-                            <li><a href="#">Watch Replay</a></li>
-                            <li><a href="#">Match Results</a></li>
-                        </ul>
-                    </td>
-                </tr>
+                <thead>
+                    <th><h1>LCK</h1></th>
+                </thead>
+                <tbody id="lck">
+                </tbody>
             </table>
+            <script>
+                function append_data(id, data) {
+                    var match = '';
+
+                    $.each(data, function (key, value) {
+                        match += '<tr><td>'
+                        match += '<h2>' + value.team1 + ' vs. ' + value.team2 + '</h2>';
+                        match += '<ul>'
+                        match += '<li><a href="' + value.watch_link + '">Watch Replay</li>';
+                        match += '<li><a href="' + value.result_link + '">Match Results</li>';
+                    });
+
+                    $(id).append(match);
+                }
+
+                $(document).ready(function () {
+                    $.getJSON("test.json", function (data) {
+                        var tags = ['#lcs', '#lec', '#lck'];
+                        tags.forEach(tag => append_data(tag, data));
+                    });
+                });
+            </script>
         </div>
     </body>
 </html>

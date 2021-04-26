@@ -51,13 +51,18 @@ nav ul {
 }
 
 .table-wrapper {
-    margin: auto;
-    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+    padding: 0;
 }
 
 li {
     list-style: none;
     display: inline-block;
+    padding: 0 10px;
 }
 
 li a {
@@ -85,7 +90,7 @@ td {
     height: 80px;
 }
 
-table, th, td {
+th, td {
     background-color: #222222;
     border: 1px solid #FFFFFF;
     color: #EEF0EB;

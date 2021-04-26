@@ -48,26 +48,30 @@
             <script>
                 // Append Data Function
                 // Adds data from a given json file to a table with id=tag
-                function append_data(id, data) {
-                    var match = '';
+                function append_data(data) {
+                    var match;
+                    var tag;
 
                     $.each(data, function (key, value) {
+                        match = '';
+                        tag = '#' + value.region;
                         match += '<tr><td>'
                         match += '<h2>' + value.team1 + ' vs. ' + value.team2 + '</h2>';
                         match += '<ul>'
                         match += '<li><a href="' + value.watch_link + '">Watch Replay</li>';
                         match += '<li><a href="' + value.result_link + '">Match Results</li>';
+                    
+                        $(tag).append(match);
                     });
-
-                    $(id).append(match);
                 }
 
                 // When the document loads
                 $(document).ready(function () {
                     // Get the data from the json file and load the data to the page
                     $.getJSON("test.json", function (data) {
-                        var tags = ['#lcs', '#lec', '#lck'];
-                        tags.forEach(tag => append_data(tag, data));
+                        // var tags = ['#lcs', '#lec', '#lck'];
+                        // tags.forEach(tag => append_data(tag, data));
+                        append_data(data);
                     });
                 });
             </script>

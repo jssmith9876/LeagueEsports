@@ -1,20 +1,23 @@
 
 [
     {
+        "region": "lcs",
         "team1": "TSM",
         "team2": "CLG",
         "watch_link": "#",
         "result_link": "#"
     },
     {
-        "team1": "C9",
-        "team2": "TL",
+        "region": "lec",
+        "team1": "FNC",
+        "team2": "RGE",
         "watch_link": "#",
         "result_link": "#"
     },
     {
-        "team1": "100T",
-        "team2": "DIG",
+        "region": "lck",
+        "team1": "T1",
+        "team2": "DWG",
         "watch_link": "#",
         "result_link": "#"
     }
